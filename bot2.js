@@ -5,6 +5,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 bot.on('ready', () => {
     console.log('I am ready!');
 });
+
 bot.on('message', function (user, userID, channelID, message, evt) {
     try{
         //console.log(message);
@@ -395,6 +396,4 @@ function comprobar(arr, num){
         console.log(e);
     }    
 }
-
-
 bot.login(process.env.BOT_TOKEN);
