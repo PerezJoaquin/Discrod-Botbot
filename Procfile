@@ -1,2 +1,1 @@
-web: bundle exec rails server -p $PORT
-worker: node bot.js
+worker node bot.js
