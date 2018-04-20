@@ -1,4 +1,4 @@
-var Discord = require('discord.js');
+const Discord = require('discord.js');
 //var logger = require('winston');
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // Configure logger settings
@@ -8,10 +8,10 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 });
 logger.level = 'debug';*/
 // Initialize Discord Bot
-var bot = new Discord.Client({
+const bot = new Discord.Client(/*{
    token: process.env.BOT_TOKEN,
    autorun: true
-});
+}*/);
 bot.on('ready', function (evt) {
     /*logger.info('Connected');
     logger.info('Logged in as: ');
@@ -405,6 +405,8 @@ function comprobar(arr, num){
     }catch(e){
         console.log("-error en comp array-");
         console.log(e);
-    }
-    
+    }    
 }
+
+
+client.login(process.env.BOT_TOKEN);
