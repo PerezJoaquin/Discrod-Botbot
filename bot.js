@@ -1,21 +1,9 @@
 const Discord = require('discord.js');
-//var logger = require('winston');
+const bot = new Discord.Client();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-// Configure logger settings
-//logger.remove(logger.transports.Console);
-/*logger.add(logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';*/
 // Initialize Discord Bot
-const bot = new Discord.Client(/*{
-   token: process.env.BOT_TOKEN,
-   autorun: true
-}*/);
-bot.on('ready', function (evt) {
-    /*logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');*/
+bot.on('ready', () => {
+    console.log('I am ready!');
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     try{
