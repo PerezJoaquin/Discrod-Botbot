@@ -153,6 +153,7 @@ bot.on('message', message => {
         }
     }catch(e){
         console.log(e);
+        message.channel.send(e);
         message.channel.send('Ocurrió un error con el pedido');
     }
 });
