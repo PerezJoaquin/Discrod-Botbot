@@ -23,11 +23,8 @@ bot.on('message', message => {
 }
 });*/
 bot.on('message', message => {
-    if(message.toLowerCase() == "<@410710444182077450>"){
-                bot.sendMessage({
-                    to: channelID,
-                    message: ':eggplant:'
-                });
+    if(message.content.toLowerCase() == "<@410710444182077450>"){
+        message.channel.send(':eggplant:');
     }
 });
 // THIS  MUST  BE  THIS  WAY
