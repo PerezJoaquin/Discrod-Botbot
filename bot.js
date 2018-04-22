@@ -34,7 +34,7 @@ bot.on('message', message => {
 //DB
 bot.on('message', message => {
     try{
-        args = message.split(" ");
+        args = message.content.split(" ");
         if(args[0]+" "+args[1] == "!bb db"){
             if(args[2] != null){
                 if(args[3] != null){
