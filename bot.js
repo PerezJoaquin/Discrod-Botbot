@@ -5,12 +5,12 @@ bot.on('ready', () => {
     console.log('I am ready!');
 });
 
-/*bot.on('message', message => {
+bot.on('message', message => {
     if (message.content === 'ping') {
     	message.channel.send('PONG!');
   	}
 });
-
+/*
 bot.on('message', message => {
     if (message.content === 'bing') {
     	message.reply('BONG!');
