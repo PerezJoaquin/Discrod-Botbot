@@ -21,13 +21,14 @@ bot.on('message', message => {
     if(message.toLowerCase() == "<@410710444182077450>"){
             message.channel.send(':eggplant:');
 }
-});
+});*/
+bot.on('message', message => {
     if(message.toLowerCase() == "<@410710444182077450>"){
                 bot.sendMessage({
                     to: channelID,
                     message: ':eggplant:'
                 });
-    }*/
-
+    }
+});
 // THIS  MUST  BE  THIS  WAY
 bot.login(process.env.BOT_TOKEN);
