@@ -19,10 +19,7 @@ bot.on('message', message => {
 
 bot.on('message', function (user, userID, channelID, message, evt){
     if(message.toLowerCase() == "<@410710444182077450>"){
-            bot.sendMessage({
-                to: channelID,
-                message: ':eggplant:'
-            });
+            message.channel.send(':eggplant:');
 }
 });
 
