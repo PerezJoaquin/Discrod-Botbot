@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const reqor = require('request');
-const XMLHttpRequest = require('request-promise')
+const XMLHttpRequest = require('request');
+const obs = require('request-promise')
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -131,9 +131,11 @@ bot.on('message', message => {
                     console.log("sale db tag");
                 }
             }else{
-                pstoa = httpGet("http://danbooru.donmai.us/posts/random.json");
-                console.log("pstoa:" + pstoa);
-                response = JSON.parse(pstoa);
+                XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
+                    response = body;
+                });
+                //pstoa = httpGet("http://danbooru.donmai.us/posts/random.json");
+                //response = JSON.parse(pstoa);
                 selimg = response;
                 if(selimg["tag_string_artist"] == ''){
                     selimg["tag_string_artist"] = "Desconocido";
@@ -177,13 +179,13 @@ function httpGet(theUrl){
     });
     console.log("repose: " + repose);
     return repose;*/
-    XMLHttpRequest('theUrl')
+    /*XMLHttpRequest('theUrl')
     .then(function (htmlString) {
         return htmlString;
     })
     .catch(function (err) {
         httpGet(theUrl);
-    });
+    });*/
 }
 function comprobar(arr, num){
     try{
