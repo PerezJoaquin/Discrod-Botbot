@@ -17,7 +17,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
     if (message.content === 'ping') {
     	message.channel.send('PONG! HTTP v2');
-        XMLHttpRequest(theUrl, function (error, response, body) {
+        XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
             console.log(body.responseText);
