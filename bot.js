@@ -179,7 +179,7 @@ function httpGet(theUrl){
     return repose;*/
     XMLHttpRequest('theUrl')
     .then(function (htmlString) {
-        return repose;
+        return htmlString;
     })
     .catch(function (err) {
         httpGet(theUrl);
