@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var XMLHttpRequest = require('request');
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -16,8 +16,19 @@ bot.on('ready', () => {
 //test
 bot.on('message', message => {
     if (message.content === 'ping') {
-    	message.channel.send('PONG!');
+    	//message.channel.send('PONG!');
+        request('http://www.google.com', function (error, response, body) {
+          console.log('error:', error); // Print the error if one occurred
+          console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+          console.log('body:', body); // Print the HTML for the Google homepage.
+        });
   	}
+});
+
+request('http://www.google.com', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  console.log('body:', body); // Print the HTML for the Google homepage.
 });
 //tag
 bot.on('message', message => {
@@ -158,7 +169,7 @@ bot.on('message', message => {
         message.channel.send('Ocurrió un error con el pedido');
     }
 });
-
+/*
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
@@ -169,7 +180,7 @@ function httpGet(theUrl){
         return xmlHttp.responseText;
     }  
 }
-
+*/
 function comprobar(arr, num){
     try{
         for(j=0;j<arr.length; j++){
