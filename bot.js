@@ -167,7 +167,7 @@ bot.on('message', message => {
 function httpGet(theUrl){
     XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
-        ab = = JSON.parse(body);
+        ab = JSON.parse(body);
         return JSON.stringify(ab);
     });
 }
