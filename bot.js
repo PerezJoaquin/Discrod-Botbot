@@ -168,10 +168,12 @@ bot.on('message', message => {
     }
 });
 function httpGet(theUrl){
+    repose = "";
     XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
-        return body;
+        repose = body;
     });
+    return repose;
 }
 function comprobar(arr, num){
     try{
