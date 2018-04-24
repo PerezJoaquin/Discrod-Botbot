@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const XMLHttpRequest = require('request');
+//const XMLHttpRequest = require('request');
 
 bot.on('ready', () => {
     console.log('I am ready!');
