@@ -16,11 +16,12 @@ bot.on('ready', () => {
 //test
 bot.on('message', message => {
     if (message.content === 'ping') {
-    	message.channel.send('PONG! HTTP v2');
+    	//message.channel.send('PONG! HTTP v3');
         XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
-            response = JSON.parse(body);
+            //response = JSON.parse(body);
+            message.channel.send(body);
         });
   	}
 });
