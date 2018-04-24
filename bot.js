@@ -20,7 +20,7 @@ bot.on('message', message => {
         XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
-            console.log(body.responseText);
+            response = JSON.parse(body);
         });
   	}
 });
