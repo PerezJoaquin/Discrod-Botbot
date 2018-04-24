@@ -16,12 +16,7 @@ bot.on('ready', () => {
 //test
 bot.on('message', message => {
     if (message.content === 'ping') {
-    	//message.channel.send('PONG!');
-        XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
-          //console.log('error:', error); // Print the error if one occurred
-          //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-          console.log('body:', body); // Print the HTML for the Google homepage.
-        });
+    	message.channel.send('PONG! HTTP');
   	}
 });
 
@@ -164,18 +159,12 @@ bot.on('message', message => {
         message.channel.send('Ocurrió un error con el pedido');
     }
 });
-/*
 function httpGet(theUrl){
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    //return xmlHttp.responseText;
-    //console.log(xmlHttp.responseText)
-    if(xmlHttp.responseText != "[]"){
-        return xmlHttp.responseText;
-    }  
+    XMLHttpRequest(theUrl, function (error, response, body) {
+        //console.log('body:', body); // Print the HTML for the Google homepage.
+        return body;
+    });
 }
-*/
 function comprobar(arr, num){
     try{
         for(j=0;j<arr.length; j++){
