@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-//const XMLHttpRequest = require('request');
+const XMLHttpRequest = require('request');
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -17,11 +17,11 @@ bot.on('ready', () => {
 bot.on('message', message => {
     if (message.content === 'ping') {
     	//message.channel.send('PONG!');
-        /*XMLHttpRequest('http://www.google.com', function (error, response, body) {
+        XMLHttpRequest('http://www.google.com', function (error, response, body) {
           console.log('error:', error); // Print the error if one occurred
           console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
           console.log('body:', body); // Print the HTML for the Google homepage.
-        });*/
+        });
   	}
 });
 
