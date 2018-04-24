@@ -130,7 +130,9 @@ bot.on('message', message => {
                     console.log("sale db tag");
                 }
             }else{
-                response = JSON.parse(httpGet("http://danbooru.donmai.us/posts/random.json"));
+                pstoa = httpGet("http://danbooru.donmai.us/posts/random.json");
+                console.log("pstoa:" + pstoa);
+                response = JSON.parse(pstoa);
                 selimg = response;
                 if(selimg["tag_string_artist"] == ''){
                     selimg["tag_string_artist"] = "Desconocido";
@@ -168,8 +170,7 @@ bot.on('message', message => {
 function httpGet(theUrl){
     XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
-        ab = JSON.parse(body);
-        return JSON.stringify(ab);
+        return body;
     });
 }
 function comprobar(arr, num){
