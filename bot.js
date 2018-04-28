@@ -176,7 +176,8 @@ function httpGet(theUrl){
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
-        while(repose == " "){
+        var comp = body;
+        while(repose == comp){
             repose = body;
         }
     });
