@@ -23,11 +23,11 @@ bot.on('message', message => {
             //return body;
             //response = JSON.parse(body);
         var psor = " ";
-        httpGet("https://danbooru.donmai.us/posts/random.json", function(repose){
+        /*httpGet("https://danbooru.donmai.us/posts/random.json", function(repose){
             psor = repose;
             console.log("ping: " + psor);
-        });
-        //console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
+        });*/
+        console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
         
         //});
   	}
@@ -176,14 +176,18 @@ bot.on('message', message => {
         message.channel.send('Ocurrió un error con el pedido');
     }
 });
-function httpGet(theUrl, callback){
+function httpGet(theUrl/*, callback*/){
     var repose = " ";
     XMLHttpRequest(theUrl, function (error, response, body) {
         console.log("body: " + body);
         repose = body;
         console.log("repose: " + repose);
+        while(body[0] != "{"){
+            console.log("rta--------");
+        }
+        console.log("listo---------");
     });
-    callback(repose);
+    //callback(repose);
 }
 function comprobar(arr, num){
     try{
