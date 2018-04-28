@@ -24,7 +24,7 @@ bot.on('message', message => {
             //response = JSON.parse(body);
             console.log(httpGet("https://danbooru.donmai.us/posts/random.json"));
             message.channel.send(body);
-        });
+        //});
   	}
 });
 
