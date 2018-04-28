@@ -24,10 +24,11 @@ bot.on('message', message => {
             //response = JSON.parse(body);
         var psor = " ";
         httpGet("https://danbooru.donmai.us/posts/random.json", function(repose){
-            psor = repose
+            psor = repose;
+            console.log("ping: " + psor);
         });
 
-        console.log("ping: " + psor);
+        
         //});
   	}
 });
