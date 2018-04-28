@@ -171,11 +171,14 @@ bot.on('message', message => {
     }
 });
 function httpGet(theUrl){
-    var repose;
+    var repose = " ";
     XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
+        while(repose == " "){
+            repose = body;
+        }
     });
     console.log("repose: " + repose);
     return repose;
