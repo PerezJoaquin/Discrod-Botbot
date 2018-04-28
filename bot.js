@@ -17,11 +17,12 @@ bot.on('ready', () => {
 //test
 bot.on('message', message => {
     if (message.content === 'ping') {
-    	//message.channel.send('PONG! HTTP v3');
-        XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
+    	message.channel.send('PONG! HTTP v4');
+        //XMLHttpRequest('https://danbooru.donmai.us/posts/random.json', function (error, response, body) {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
             //response = JSON.parse(body);
+            console.log(httpGet("https://danbooru.donmai.us/posts/random.json"));
             message.channel.send(body);
         });
   	}
@@ -51,13 +52,13 @@ bot.on('message', message => {
                     var d = new Date();
                     minsec = (d.getMinutes()*60) + d.getSeconds();
                     for(i = 0; i < args[3]; i++){                       
-                        response = JSON.parse(httpGet("http://danbooru.donmai.us/posts/random.json?tags="+args[2]));  
+                        response = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags="+args[2]));  
                         d = new Date();
                         minsec = (d.getDay()*24*60*60) + (d.getHours()*60*60) + (d.getMinutes()*60) + d.getSeconds();           
                         minsec2 = 0;
                         if(i != 0){
                             while(!comprobar(countSel, response["id"])){
-                                response2 = JSON.parse(httpGet("http://danbooru.donmai.us/posts/random.json?tags="+args[2]));
+                                response2 = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags="+args[2]));
                                 response = response2;
                                 daux = new Date();
                                 minsec2 = (daux.getDay()*24*60*60) + (daux.getHours()*60*60) + (daux.getMinutes()*60) + daux.getSeconds();
@@ -102,7 +103,7 @@ bot.on('message', message => {
                         console.log("sal db tag num");
                     }
                 }else{
-                    response = JSON.parse(httpGet("http://danbooru.donmai.us/posts/random.json?tags="+args[2]));
+                    response = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags="+args[2]));
                     selimg = response;
                     if(selimg["tag_string_artist"] == ''){
                         selimg["tag_string_artist"] = "Desconocido";
@@ -131,11 +132,11 @@ bot.on('message', message => {
                     console.log("sale db tag");
                 }
             }else{
-                XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
+                /*XMLHttpRequest('http://danbooru.donmai.us/posts/random.json', function (error, response, body) {
                     response = body;
-                });
-                //pstoa = httpGet("http://danbooru.donmai.us/posts/random.json");
-                //response = JSON.parse(pstoa);
+                });*/
+                pstoa = httpGet("https://danbooru.donmai.us/posts/random.json");
+                response = JSON.parse(pstoa);
                 selimg = response;
                 if(selimg["tag_string_artist"] == ''){
                     selimg["tag_string_artist"] = "Desconocido";
@@ -171,14 +172,14 @@ bot.on('message', message => {
     }
 });
 function httpGet(theUrl){
-    /*var repose;
+    var repose;
     XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
     });
     console.log("repose: " + repose);
-    return repose;*/
+    return repose;
     /*XMLHttpRequest('theUrl')
     .then(function (htmlString) {
         return htmlString;
