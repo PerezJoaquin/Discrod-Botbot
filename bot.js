@@ -176,17 +176,18 @@ function httpGet(theUrl){
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
+        console.log("repose: " + repose);
         //var comp = body;
         /*while(repose == comp){
             repose = body;
         }*/
-        if(repose == undefined){
+        /*if(repose == undefined){
             console.log("repose undefined------------");
         }else{
             console.log("other------------------");
-        }
+        }*/
     });
-    console.log("repose: " + repose);
+    
     return repose;
     /*XMLHttpRequest('theUrl')
     .then(function (htmlString) {
