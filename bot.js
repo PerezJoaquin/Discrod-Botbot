@@ -22,7 +22,7 @@ bot.on('message', message => {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
             //response = JSON.parse(body);
-            console.log(httpGet("https://danbooru.donmai.us/posts/random.json"));
+            console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
         //});
   	}
 });
@@ -177,6 +177,7 @@ function httpGet(theUrl){
         console.log("body: " + body);
         repose = body;
         console.log("repose: " + repose);
+        return repose;
         //var comp = body;
         /*while(repose == comp){
             repose = body;
@@ -188,7 +189,7 @@ function httpGet(theUrl){
         }*/
     });
     
-    return repose;
+    //return repose;
     /*XMLHttpRequest('theUrl')
     .then(function (htmlString) {
         return htmlString;
