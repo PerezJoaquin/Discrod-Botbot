@@ -176,9 +176,14 @@ function httpGet(theUrl){
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
-        var comp = body;
-        while(repose == comp){
+        //var comp = body;
+        /*while(repose == comp){
             repose = body;
+        }*/
+        if(repose == undefined){
+            console.log("repose undefined------------");
+        }else{
+            console.log("other------------------");
         }
     });
     console.log("repose: " + repose);
