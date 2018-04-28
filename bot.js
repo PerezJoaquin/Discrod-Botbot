@@ -27,7 +27,7 @@ bot.on('message', message => {
             psor = repose;
             console.log("ping: " + psor);
         });
-
+        //console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
         
         //});
   	}
@@ -182,7 +182,6 @@ function httpGet(theUrl, callback){
         console.log("body: " + body);
         repose = body;
         console.log("repose: " + repose);
-        return repose;
     });
     callback(repose);
 }
