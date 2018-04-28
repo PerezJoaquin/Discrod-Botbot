@@ -188,7 +188,7 @@ function httpGet(theUrl){
         //var comp = body;
     });*/
     
-    return XMLHttpRequest('theUrl');
+    return XMLHttpRequest(theUrl);
     
 }
 function comprobar(arr, num){
