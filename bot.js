@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const XMLHttpRequest = require('request');
-const obs = require('request-promise')
+//const XMLHttpRequest = require('request');
+const XMLHttpRequest = require('request-promise')
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -22,7 +22,14 @@ bot.on('message', message => {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
             //response = JSON.parse(body);
-            console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
+        var psor = " ";
+        httpGet("https://danbooru.donmai.us/posts/random.json").then(function (htmlString) {
+                psor = htmlString;
+            })
+            .catch(function (err) {
+                httpGet(theUrl);
+            });
+            console.log("ping: " + psor);
         //});
   	}
 });
@@ -172,31 +179,17 @@ bot.on('message', message => {
 });
 function httpGet(theUrl){
     var repose = " ";
-    XMLHttpRequest(theUrl, function (error, response, body) {
+    /*XMLHttpRequest(theUrl, function (error, response, body) {
         //console.log('body:', body); // Print the HTML for the Google homepage.
         console.log("body: " + body);
         repose = body;
         console.log("repose: " + repose);
         return repose;
         //var comp = body;
-        /*while(repose == comp){
-            repose = body;
-        }*/
-        /*if(repose == undefined){
-            console.log("repose undefined------------");
-        }else{
-            console.log("other------------------");
-        }*/
-    });
-    
-    //return repose;
-    /*XMLHttpRequest('theUrl')
-    .then(function (htmlString) {
-        return htmlString;
-    })
-    .catch(function (err) {
-        httpGet(theUrl);
     });*/
+    
+    return XMLHttpRequest('theUrl');
+    
 }
 function comprobar(arr, num){
     try{
