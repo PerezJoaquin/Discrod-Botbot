@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-//const XMLHttpRequest = require('request');
-const XMLHttpRequest = require('request-promise')
+const XMLHttpRequest = require('request');
+//const XMLHttpRequest = require('request-promise')
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -17,19 +17,17 @@ bot.on('ready', () => {
 //test
 bot.on('message', message => {
     if (message.content === 'ping') {
-    	message.channel.send('PONG! HTTP v4');
+    	message.channel.send('PONG! HTTP v5');
         //XMLHttpRequest('https://danbooru.donmai.us/posts/random.json', function (error, response, body) {
             //console.log('body:', body); // Print the HTML for the Google homepage.
             //return body;
             //response = JSON.parse(body);
         var psor = " ";
-        httpGet("https://danbooru.donmai.us/posts/random.json").then(function (htmlString) {
-                psor = htmlString;
-            })
-            .catch(function (err) {
-                httpGet(theUrl);
-            });
-            console.log("ping: " + psor);
+        httpGet("https://danbooru.donmai.us/posts/random.json", function(repose){
+            psor = repose
+        });
+
+        console.log("ping: " + psor);
         //});
   	}
 });
@@ -177,19 +175,15 @@ bot.on('message', message => {
         message.channel.send('Ocurrió un error con el pedido');
     }
 });
-function httpGet(theUrl){
+function httpGet(theUrl, callback){
     var repose = " ";
-    /*XMLHttpRequest(theUrl, function (error, response, body) {
-        //console.log('body:', body); // Print the HTML for the Google homepage.
+    XMLHttpRequest(theUrl, function (error, response, body) {
         console.log("body: " + body);
         repose = body;
         console.log("repose: " + repose);
         return repose;
-        //var comp = body;
-    });*/
-    
-    return XMLHttpRequest(theUrl);
-    
+    });
+    callback(repose);
 }
 function comprobar(arr, num){
     try{
