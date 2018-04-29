@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const XMLHttpRequest = require('request');
+//const XMLHttpRequest = require('request');
 //const XMLHttpRequest = require('request-promise')
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 bot.on('ready', () => {
     console.log('I am ready!');
@@ -179,7 +180,7 @@ bot.on('message', message => {
     }
 });
 function httpGet(theUrl/*, callback*/){
-    var repose = " ";
+    /*var repose = " ";
     d = new Date();
     console.log("function op: " + d + "\n");
     minsec = (d.getDay()*24*60*60) + (d.getHours()*60*60) + (d.getMinutes()*60) + d.getSeconds();
@@ -202,8 +203,18 @@ function httpGet(theUrl/*, callback*/){
             break;
         }
     }
-    return repose;
+    return repose;*/
     //callback(repose);
+    
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    //test xmlHttp.open( "GET", "https://danbooru.donmai.us/posts/2113025.json", false );
+    xmlHttp.send( null );
+    if(xmlHttp.responseText != "[]"){
+        return xmlHttp.responseText;
+    }else{
+        return httpGet(theUrl);
+    }
 }
 function comprobar(arr, num){
     try{
