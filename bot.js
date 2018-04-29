@@ -195,6 +195,7 @@ function httpGet(theUrl/*, callback*/){
         d = new Date();
         console.log("end req: " + d + "\n");
     });
+    console.log("after");
     //callback(repose);
 }
 function comprobar(arr, num){
