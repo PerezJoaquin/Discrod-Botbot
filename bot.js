@@ -182,20 +182,27 @@ function httpGet(theUrl/*, callback*/){
     var repose = " ";
     d = new Date();
     console.log("function op: " + d + "\n");
+    minsec = (d.getDay()*24*60*60) + (d.getHours()*60*60) + (d.getMinutes()*60) + d.getSeconds();
+    minsec2 = 0;
     XMLHttpRequest(theUrl, function (error, response, body) {
         d = new Date();
         console.log("ini req: " + d + "\n");
         console.log("body: " + body + "\n");
         repose = body;
         console.log("repose: " + repose + "\n");
-        /*while(body[0] != "{"){
-            console.log("rta--------");
-        }
-        console.log("listo---------");*/
         d = new Date();
         console.log("end req: " + d + "\n");
     });
-    console.log("after");
+    while(repose[0] != "{"){
+        daux = new Date();
+        minsec2 = (daux.getDay()*24*60*60) + (daux.getHours()*60*60) + (daux.getMinutes()*60) + daux.getSeconds();
+        console.log("minsec: " +minsec+"\nminsec2:"+minsec2);
+        if(minsec2 - minsec > 15){
+            console.log("break");
+            break;
+        }
+    }
+    return repose;
     //callback(repose);
 }
 function comprobar(arr, num){
