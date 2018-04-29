@@ -27,7 +27,9 @@ bot.on('message', message => {
             psor = repose;
             console.log("ping: " + psor);
         });*/
-        console.log("ping: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
+        d = new Date();
+        console.log("pingg:" + d + "\n");
+        console.log("pong: " + httpGet("https://danbooru.donmai.us/posts/random.json"));
         
         //});
   	}
@@ -178,14 +180,20 @@ bot.on('message', message => {
 });
 function httpGet(theUrl/*, callback*/){
     var repose = " ";
+    d = new Date();
+    console.log("function op: " + d + "\n");
     XMLHttpRequest(theUrl, function (error, response, body) {
-        console.log("body: " + body);
+        d = new Date();
+        console.log("ini req: " + d + "\n");
+        console.log("body: " + body + "\n");
         repose = body;
-        console.log("repose: " + repose);
-        while(body[0] != "{"){
+        console.log("repose: " + repose + "\n");
+        /*while(body[0] != "{"){
             console.log("rta--------");
         }
-        console.log("listo---------");
+        console.log("listo---------");*/
+        d = new Date();
+        console.log("end req: " + d + "\n");
     });
     //callback(repose);
 }
