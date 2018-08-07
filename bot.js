@@ -298,7 +298,7 @@ bot.on('message', message => {
                         if(i != 0){
                             while(!comprobar(countSel, response["id"]) && copRat(response["rating"])){
                                 ratingg = selectR();
-                                response = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags=rating:"+ratingg+" "+args[2]));
+                                response2 = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags=rating:"+ratingg+" "+args[2]));
                                 response = response2;
                                 daux = new Date();
                                 minsec2 = (daux.getDay()*24*60*60) + (daux.getHours()*60*60) + (daux.getMinutes()*60) + daux.getSeconds();
