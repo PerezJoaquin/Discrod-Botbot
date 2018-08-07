@@ -443,9 +443,9 @@ function comprobar(arr, num){
 
 function copRat(rat){
     if(rat == "e" || rat == "q"){
-        resturn true;
+        return true;
     }else{
-        resturn false;
+        return false;
     }
 }
 
