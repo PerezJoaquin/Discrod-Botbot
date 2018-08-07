@@ -377,7 +377,7 @@ bot.on('message', message => {
                     response = body;
                 });*/
                 ratingg = selectR();
-                response = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags=rating:"+ratingg);
+                response = JSON.parse(httpGet("https://danbooru.donmai.us/posts/random.json?tags=rating:"+ratingg));
                 selimg = response;
                 if(selimg["tag_string_artist"] == ''){
                     selimg["tag_string_artist"] = "Desconocido";
