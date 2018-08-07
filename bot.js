@@ -42,7 +42,11 @@ bot.on('message', message => {
         args = message.content.split(" ");
         if(args[0]+" "+args[1] == "!bb db"){
             if(args[2] != null){
-                if(args[3] != null){
+                if(args[3] != null || !isNaN(args[2])){
+                    if(!isNaN(args[2])){
+                        args[3] = args[2];
+                        args[2] = " ";
+                    }
                     countSel = [];
                     var d = new Date();
                     minsec = (d.getMinutes()*60) + d.getSeconds();
